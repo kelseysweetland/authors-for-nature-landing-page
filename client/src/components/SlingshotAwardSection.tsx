@@ -22,7 +22,7 @@ export default function SlingshotAwardSection() {
         <CardContent className="md:w-1/2 w-full flex flex-col justify-center items-center px-8 py-12 gap-6 text-center">
           <h2 className="text-3xl font-bold text-nature-primary mb-1" data-testid="slingshot-title">National Geographic
           Slingshot Challenge</h2>
-          <p className="text-lg text-muted-foreground font-semibold" data-testid="slingshot-award">Honorable Mention</p>
+          <p className="text-lg font-semibold text-[#0f141a]" data-testid="slingshot-award">Honorable Mention</p>
           <p className="text-base text-[#0f141a]" data-testid="slingshot-author">By Kelsey Sweetland, Founder of Authors for Nature</p>
         </CardContent>
       </Card>
