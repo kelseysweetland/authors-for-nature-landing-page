@@ -3,6 +3,7 @@ import { ArrowRight, Leaf, BookOpen, Sparkles, CheckCircle2, HeartHandshake, Glo
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
+import SlingshotAwardSection from "@/components/SlingshotAwardSection";
 
 // Hero image URL - custom Authors for Nature illustration
 import heroImage from "@assets/Authors_For_Nature_1754604538308.jpg";
@@ -15,6 +16,7 @@ export default function Home() {
       <Hero />
       <TrustBar />
       <HowItWorks />
+      <SlingshotAwardSection />
       <Programs />
       <Outcomes />
       <Testimonials />
