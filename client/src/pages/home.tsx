@@ -330,9 +330,7 @@ function CallToAction() {
     <section className="py-20 bg-nature-primary text-primary-foreground">
       <div className="mx-auto max-w-7xl px-4 text-center">
         <h2 className="text-3xl md:text-5xl font-bold" data-testid="cta-title">Ready to become an author for nature?</h2>
-        <p className="mt-4 text-lg text-primary-foreground/90 max-w-2xl mx-auto" data-testid="cta-description">
-          Join hundreds of young writers making a difference through storytelling. Your voice matters, and your story can change the world.
-        </p>
+        <p className="mt-4 text-lg text-primary-foreground/90 max-w-2xl mx-auto" data-testid="cta-description">Join other young writers making a difference through storytelling. Your voice matters, and your story can change the world.</p>
         <div className="mt-8 flex flex-wrap justify-center gap-4">
           <Button asChild size="lg" className="bg-nature-secondary hover:opacity-90 text-lg" data-testid="button-start-journey">
             <Link href="/join" className="inline-flex items-center gap-2">
