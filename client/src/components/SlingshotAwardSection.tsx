@@ -12,7 +12,6 @@ export default function SlingshotAwardSection() {
         className="absolute top-10 right-10 w-40 h-auto opacity-95 bg-transparent"
         style={{ pointerEvents: 'none', background: 'none' }}
       />
-
       <Card className="max-w-4xl w-full mx-auto bg-white shadow-2xl rounded-3xl flex flex-col md:flex-row p-0 overflow-hidden border-0 min-h-[420px]">
         {/* Video & Thumbnail */}
         <div className="md:w-1/2 w-full flex items-center justify-center bg-white py-12 px-4">
@@ -28,9 +27,8 @@ export default function SlingshotAwardSection() {
         </div>
         {/* Minimal Text Content */}
         <CardContent className="md:w-1/2 w-full flex flex-col justify-center items-center px-8 py-12 gap-6 text-center">
-          <h2 className="text-3xl font-bold text-nature-primary mb-1" data-testid="slingshot-title">
-            Slingshot Challenge
-          </h2>
+          <h2 className="text-3xl font-bold text-nature-primary mb-1" data-testid="slingshot-title">National Geographic
+          Slingshot Challenge</h2>
           <p className="text-lg text-muted-foreground font-semibold" data-testid="slingshot-award">
             Honorable Mention, National Geographic
           </p>
