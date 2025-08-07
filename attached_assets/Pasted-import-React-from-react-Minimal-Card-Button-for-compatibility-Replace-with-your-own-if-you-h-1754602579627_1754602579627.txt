@@ -1,0 +1,149 @@
+import React from "react";
+
+// Minimal Card/Button for compatibility. Replace with your own if you have them in './components/ui/card' and './components/ui/button'.
+function Card({ children, className }) { return <div className={`bg-white p-6 rounded-2xl border shadow-md ${className || ""}`}>{children}</div>; }
+function CardHeader({ children }) { return <div>{children}</div>; }
+function CardTitle({ children, className }) { return <h3 className={`font-bold text-xl ${className || ""}`}>{children}</h3>; }
+function CardContent({ children }) { return <div>{children}</div>; }
+function Button({ children, className, asChild, ...rest }) {
+  if (asChild && React.Children.count(children) === 1 && React.isValidElement(children)) {
+    // clone and inject props into the anchor
+    return React.cloneElement(children, {
+      className: `${children.props.className || ''} rounded-lg px-4 py-2 font-bold text-white ${className || ''}`.trim(),
+      style: { ...(children.props.style || {}), background: "#2e7d32" },
+      ...rest,
+    });
+  }
+  return <button className={`rounded-lg px-4 py-2 font-bold text-white ${className || ""}`} style={{ background: "#2e7d32" }} {...rest}>{children}</button>;
+}
+
+// Minimal ArrowRight and CheckCircle2 fallback icons
+const ArrowRight = (props) => <span style={{ display: 'inline-block', marginLeft: 8 }}>→</span>;
+const CheckCircle2 = (props) => <span style={{ color: props.style?.color || "#2e7d32", marginRight: 6, ...props.style }}>✔️</span>;
+
+const HERO_URL = "https://images.unsplash.com/photo-1535905557558-afc4877a26fc?q=80&w=2400&auto=format&fit=crop";
+
+const COLORS = {
+  primary: "#2e7d32",
+  primaryDark: "#1b5e20",
+  secondary: "#00a896",
+  accent: "#ffd166",
+  ink: "#0b0f14",
+  slate: "#5b6975",
+  paper: "#f7faf7",
+};
+
+// Placeholder components to avoid runtime ReferenceError
+function SiteHeader() {
+  return <header className="p-4 border-b">Site Header</header>;
+}
+function Hero() {
+  return <section className="p-8 bg-[var(--color-paper)]">Hero Section</section>;
+}
+function TrustBar() {
+  return <section className="p-4 bg-gray-100">Trust Bar</section>;
+}
+function HowItWorks() {
+  return <section className="p-8">How It Works</section>;
+}
+function Programs() {
+  return <section className="p-8 bg-[var(--color-paper)]">Programs Section</section>;
+}
+function Outcomes() {
+  return <section className="p-8">Outcomes Section</section>;
+}
+function Testimonials() {
+  return <section className="p-8 bg-gray-100">Testimonials Section</section>;
+}
+function CallToAction() {
+  return <section className="p-8">Call to Action</section>;
+}
+function SiteFooter() {
+  return <footer className="p-4 border-t text-center">Site Footer</footer>;
+}
+
+export default function AuthorsForNatureLanding() {
+  return (
+    <div className="min-h-screen bg-white text-gray-900" style={{
+      "--color-primary": COLORS.primary,
+      "--color-primaryDark": COLORS.primaryDark,
+      "--color-secondary": COLORS.secondary,
+      "--color-accent": COLORS.accent,
+      "--color-ink": COLORS.ink,
+      "--color-slate": COLORS.slate,
+      "--color-paper": COLORS.paper,
+    }}>
+      <SiteHeader />
+      <Hero />
+      <TrustBar />
+      <HowItWorks />
+      <Programs />
+      <AccountCreation />
+      <Outcomes />
+      <Testimonials />
+      <CallToAction />
+      <SiteFooter />
+    </div>
+  );
+}
+
+function AccountCreation() {
+  const plans = [
+    {
+      title: "Basic Bookmaking",
+      price: "$500",
+      description: [
+        "Video course",
+        "Guaranteed publishing (Amazon, B&N, more)",
+        "One 1:1 mentoring session",
+        "Environmental Nonprofit partnerships"
+      ],
+      link: "https://authors-for-nature.mykajabi.com/offers/QL3iybzo/checkout"
+    },
+    {
+      title: "Pro Author Package",
+      price: "$1,500",
+      description: [
+        "Ten 1:1 mentoring sessions",
+        "Personalized introductions to environmental nonprofits",
+        "The Authors for Nature Video Course",
+        "Guaranteed publishing to Amazon, Barnes & Noble, and more"
+      ],
+      link: "https://authors-for-nature.mykajabi.com/offers/2Fck7A7E/checkout"
+    }
+  ];
+
+  return (
+    <section className="py-20 bg-white border-t">
+      <div className="mx-auto max-w-7xl px-4">
+        <div className="max-w-3xl">
+          <h2 className="text-3xl md:text-4xl font-bold">Create Your Account</h2>
+          <p className="mt-3 text-gray-600">Choose your path and get started today.</p>
+        </div>
+        <div className="mt-10 grid gap-6 sm:grid-cols-2">
+          {plans.map((plan, i) => (
+            <Card key={i} className="rounded-2xl shadow-md border-gray-200">
+              <CardHeader>
+                <CardTitle className="text-2xl font-semibold">{plan.title}</CardTitle>
+                <div className="text-lg text-gray-700">{plan.price}</div>
+              </CardHeader>
+              <CardContent>
+                <ul className="mt-4 space-y-2">
+                  {plan.description.map((item, index) => (
+                    <li key={index} className="flex items-start gap-2">
+                      <CheckCircle2  style={{ color: COLORS.primary }} />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+                <a href={plan.link} target="_blank" rel="noreferrer">
+  <Button className="mt-6 w-full">Choose Plan <ArrowRight /></Button>
+</a>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}

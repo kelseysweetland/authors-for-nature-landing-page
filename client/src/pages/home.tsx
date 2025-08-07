@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, Leaf, BookOpen, Sparkles, CheckCircle2, HeartHandshake, Globe2, Megaphone } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Link } from "wouter";
 
 // Hero image URL - a scenic forest landscape perfect for nature-themed content
 const HERO_URL = "https://images.unsplash.com/photo-1535905557558-afc4877a26fc?q=80&w=2400&auto=format&fit=crop";
@@ -41,9 +42,9 @@ function SiteHeader() {
             <a href="https://www.authors-for-nature.mykajabi.com/login" target="_blank" rel="noreferrer">Log in</a>
           </Button>
           <Button asChild className="bg-nature-primary hover:bg-nature-primary-dark" data-testid="button-join">
-            <a href="https://www.authors-for-nature.mykajabi.com" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2">
+            <Link href="/join" className="inline-flex items-center gap-2">
               Join now <ArrowRight className="h-4 w-4" />
-            </a>
+            </Link>
           </Button>
         </div>
       </div>
@@ -70,9 +71,9 @@ function Hero() {
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Button asChild size="lg" className="bg-nature-secondary hover:opacity-90" data-testid="button-join-community">
-              <a href="https://www.authors-for-nature.mykajabi.com" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2">
+              <Link href="/join" className="inline-flex items-center gap-2">
                 Join the community <ArrowRight className="h-5 w-5" />
-              </a>
+              </Link>
             </Button>
             <Button asChild size="lg" variant="secondary" className="bg-white/90 text-nature-ink hover:bg-white" data-testid="button-how-works">
               <a href="#how">See how it works</a>
@@ -333,9 +334,9 @@ function CallToAction() {
         </p>
         <div className="mt-8 flex flex-wrap justify-center gap-4">
           <Button asChild size="lg" className="bg-nature-secondary hover:opacity-90 text-lg" data-testid="button-start-journey">
-            <a href="https://www.authors-for-nature.mykajabi.com" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2">
+            <Link href="/join" className="inline-flex items-center gap-2">
               Start your journey <ArrowRight className="h-5 w-5" />
-            </a>
+            </Link>
           </Button>
           <Button asChild size="lg" variant="secondary" className="bg-white/20 hover:bg-white/30 text-primary-foreground text-lg" data-testid="button-learn-more">
             <a href="#how">Learn more</a>
