@@ -74,11 +74,9 @@ function AccountCreation() {
       price: "$1,500",
       popular: true,
       description: [
+        "Everything in the basic bookmaking package",
         "Ten 1:1 mentoring sessions",
-        "Personalized introductions to environmental nonprofits",
-        "The Authors for Nature Video Course + advanced templates",
-        "Guaranteed publishing to Amazon, Barnes & Noble, and more",
-        "Full launch & promotion playbook"
+        "Personalized introductions to environmental nonprofits"
       ],
       link: "https://authors-for-nature.mykajabi.com/offers/2Fck7A7E/checkout"
     }
