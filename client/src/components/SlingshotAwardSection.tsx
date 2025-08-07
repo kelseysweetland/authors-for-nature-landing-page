@@ -1,6 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
-import videoFile from "@assets/FINAL VIDEO Authors for Nature Slingshot Challenge Video_1754605935304.mp4";
-import thumbnailImage from "@assets/Screenshot 2025-05-15 at 5.56.09 PM_1754606027558.png";
+import videoFile from "@assets/slingshot-video.mp4";
+import thumbnailImage from "@assets/slingshot-screenshot.png";
 
 export default function SlingshotAwardSection() {
   return (
