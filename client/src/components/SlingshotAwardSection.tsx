@@ -19,8 +19,7 @@ export default function SlingshotAwardSection() {
         </div>
         {/* Text Content - 1/3 width */}
         <div className="md:w-1/3 w-full flex flex-col justify-center items-center px-8 py-8 gap-6 text-center text-[#0f141a]">
-          <h2 className="text-3xl font-bold mb-1 text-[#0f141a]" data-testid="slingshot-title">National Geographic
-          Slingshot Challenge</h2>
+          <h2 className="text-3xl font-bold mb-1 text-[#0f141a]" data-testid="slingshot-title">National Geographic –––––––Slingshot Challenge</h2>
           <p className="text-lg font-semibold text-[#ffc002]" data-testid="slingshot-award">Honorable Mention</p>
           <p className="text-base text-[#0f141a]" data-testid="slingshot-author">By Kelsey Sweetland, Founder of Authors for Nature</p>
         </div>
