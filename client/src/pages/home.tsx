@@ -165,7 +165,7 @@ function Programs() {
         "One 1:1 mentoring session",
         "Nonprofit partnership guidance",
       ],
-      href: "https://www.authors-for-nature.mykajabi.com",
+      href: "https://authors-for-nature.mykajabi.com/offers/QL3iybzo/checkout",
       highlight: false,
     },
     {
@@ -177,7 +177,7 @@ function Programs() {
         "Video course + advanced templates",
         "Full launch & promo playbook",
       ],
-      href: "https://www.authors-for-nature.mykajabi.com",
+      href: "https://authors-for-nature.mykajabi.com/offers/2Fck7A7E/checkout",
       highlight: true,
     },
   ];
