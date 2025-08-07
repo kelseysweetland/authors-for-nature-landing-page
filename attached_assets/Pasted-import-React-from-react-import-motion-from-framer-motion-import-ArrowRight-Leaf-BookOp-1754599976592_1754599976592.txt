@@ -1,0 +1,388 @@
+import React from "react";
+import { motion } from "framer-motion";
+import { ArrowRight, Leaf, BookOpen, Sparkles, CheckCircle2, HeartHandshake, Globe2, Megaphone } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+
+/**
+ * Authors for Nature — Improved Landing Page
+ * Single-file React component. Uses Tailwind + shadcn/ui + framer-motion.
+ *
+ * 🔧 Setup:
+ * 1) Ensure Tailwind + shadcn/ui are available in your app.
+ * 2) Drop this file in your project and route it as the homepage.
+ * 3) Update HERO_URL to the existing hero graphic from authorsfornature.org
+ * 4) Confirm the accent colors below match the current brand.
+ *
+ * Color tokens are defined here so you can quickly swap to the exact brand hex values.
+ */
+
+// TODO: replace with the actual hero graphic URL from the existing site
+const HERO_URL = "https://images.unsplash.com/photo-1535905557558-afc4877a26fc?q=80&w=2400&auto=format&fit=crop"; // placeholder if you don't have the asset handy
+
+// Accent colors — sample picks based on nature/brand vibes.
+// Replace with exact hexes from the current site palette.
+const COLORS = {
+  primary: "#2e7d32", // rich leaf green
+  primaryDark: "#1b5e20",
+  secondary: "#00a896", // teal accent
+  accent: "#ffd166", // warm highlight
+  ink: "#0b0f14",
+  slate: "#5b6975",
+  paper: "#f7faf7",
+};
+
+export default function AuthorsForNatureLanding() {
+  return (
+    <div className="min-h-screen bg-white text-gray-900" style={{
+      // quick CSS variables for brand colors if you want to use var(--color-*) in custom CSS
+      // @ts-ignore — inline custom properties
+      "--color-primary": COLORS.primary,
+      "--color-primaryDark": COLORS.primaryDark,
+      "--color-secondary": COLORS.secondary,
+      "--color-accent": COLORS.accent,
+      "--color-ink": COLORS.ink,
+      "--color-slate": COLORS.slate,
+      "--color-paper": COLORS.paper,
+    }}>
+      <SiteHeader />
+      <Hero />
+      <TrustBar />
+      <HowItWorks />
+      <Programs />
+      <Outcomes />
+      <Testimonials />
+      <CallToAction />
+      <SiteFooter />
+    </div>
+  );
+}
+
+function SiteHeader() {
+  return (
+    <header className="sticky top-0 z-40 w-full backdrop-blur supports-[backdrop-filter]:bg-white/70 bg-white/80 border-b">
+      <div className="mx-auto max-w-7xl px-4 py-3 flex items-center justify-between">
+        <a href="#" className="flex items-center gap-2 font-semibold">
+          <Leaf style={{ color: COLORS.primary }} className="h-6 w-6" />
+          <span className="tracking-tight">Authors for Nature</span>
+        </a>
+        <nav className="hidden md:flex items-center gap-6 text-sm">
+          <a href="#how" className="hover:text-gray-700">How it works</a>
+          <a href="#programs" className="hover:text-gray-700">Programs</a>
+          <a href="#outcomes" className="hover:text-gray-700">Outcomes</a>
+          <a href="#community" className="hover:text-gray-700">Community</a>
+        </nav>
+        <div className="flex items-center gap-2">
+          <Button asChild variant="ghost" className="hidden sm:inline-flex"> 
+            <a href="https://www.authors-for-nature.mykajabi.com/login" target="_blank" rel="noreferrer">Log in</a>
+          </Button>
+          <Button asChild className="bg-[var(--color-primary)] hover:bg-[var(--color-primaryDark)]">
+            <a href="https://www.authors-for-nature.mykajabi.com" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2">
+              Join now <ArrowRight className="h-4 w-4" />
+            </a>
+          </Button>
+        </div>
+      </div>
+    </header>
+  );
+}
+
+function Hero() {
+  return (
+    <section className="relative">
+      <div className="absolute inset-0">
+        <img src={HERO_URL} alt="Authors for Nature hero" className="h-full w-full object-cover" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/40 to-transparent" />
+      </div>
+
+      <div className="relative mx-auto max-w-7xl px-4 py-28">
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="max-w-3xl text-white">
+          <h1 className="text-4xl md:text-6xl font-extrabold leading-tight">
+            Become a published author
+            <span className="block text-[var(--color-accent)]">and a force for nature.</span>
+          </h1>
+          <p className="mt-6 text-lg text-white/90">
+            A guided program for ages 13–25 to create, publish, and promote a children’s book that advances a UN Sustainable Development Goal.
+          </p>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <Button asChild size="lg" className="bg-[var(--color-secondary)] hover:opacity-90">
+              <a href="https://www.authors-for-nature.mykajabi.com" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2">
+                Join the community <ArrowRight className="h-5 w-5" />
+              </a>
+            </Button>
+            <Button asChild size="lg" variant="secondary" className="bg-white/90 text-[var(--color-ink)] hover:bg-white">
+              <a href="#how">See how it works</a>
+            </Button>
+          </div>
+          <div className="mt-6 text-sm text-white/80">
+            Guaranteed publishing to Amazon, Barnes & Noble, and more.
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
+function TrustBar() {
+  return (
+    <section className="bg-[var(--color-paper)]/80 border-y">
+      <div className="mx-auto max-w-7xl px-4 py-6 grid grid-cols-2 md:grid-cols-4 gap-6 items-center">
+        <Stat kpi="400+" label="community members" />
+        <Stat kpi="4" label="founder‑published books" />
+        <Stat kpi="10+" label="nonprofit partners" />
+        <Stat kpi="100%" label="publishing support" />
+      </div>
+    </section>
+  );
+}
+
+function Stat({ kpi, label }: { kpi: string; label: string }) {
+  return (
+    <div className="text-center">
+      <div className="text-2xl font-bold" style={{ color: COLORS.primary }}>{kpi}</div>
+      <div className="text-[13px] text-gray-600 uppercase tracking-wide">{label}</div>
+    </div>
+  );
+}
+
+function HowItWorks() {
+  const steps = [
+    {
+      icon: <Globe2 className="h-5 w-5" />,
+      title: "Pick a UN SDG",
+      text: "Choose a goal that inspires you and partner with an aligned nonprofit.",
+    },
+    {
+      icon: <BookOpen className="h-5 w-5" />,
+      title: "Create your book",
+      text: "Follow our video course and mentorship to write and illustrate your story.",
+    },
+    {
+      icon: <Megaphone className="h-5 w-5" />,
+      title: "Publish & promote",
+      text: "We handle distribution and help you launch with readings and events.",
+    },
+  ];
+
+  return (
+    <section id="how" className="py-20">
+      <div className="mx-auto max-w-7xl px-4">
+        <div className="max-w-3xl">
+          <h2 className="text-3xl md:text-4xl font-bold">How it works</h2>
+          <p className="mt-3 text-gray-600">A simple, supportive path from idea to impact.</p>
+        </div>
+        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {steps.map((s, i) => (
+            <Card key={i} className="rounded-2xl shadow-sm border-gray-200">
+              <CardHeader>
+                <div className="inline-flex h-10 w-10 items-center justify-center rounded-full" style={{ backgroundColor: COLORS.paper }}>
+                  {s.icon}
+                </div>
+                <CardTitle className="mt-2 text-xl">{s.title}</CardTitle>
+              </CardHeader>
+              <CardContent className="text-gray-600">{s.text}</CardContent>
+            </Card>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Programs() {
+  const tiers = [
+    {
+      name: "Basic Bookmaking",
+      price: "$500",
+      features: [
+        "Video course led by Kelsey Sweetland",
+        "Guaranteed publishing (Amazon, B&N, more)",
+        "One 1:1 mentoring session",
+        "Nonprofit partnership guidance",
+      ],
+      href: "https://www.authors-for-nature.mykajabi.com",
+      highlight: false,
+    },
+    {
+      name: "Pro Author Package",
+      price: "$1,500",
+      features: [
+        "Ten 1:1 mentoring sessions",
+        "Personalized nonprofit introductions",
+        "Video course + advanced templates",
+        "Full launch & promo playbook",
+      ],
+      href: "https://www.authors-for-nature.mykajabi.com",
+      highlight: true,
+    },
+  ];
+
+  return (
+    <section id="programs" className="py-20 bg-[var(--color-paper)]">
+      <div className="mx-auto max-w-7xl px-4">
+        <div className="max-w-3xl">
+          <h2 className="text-3xl md:text-4xl font-bold">Programs & Pricing</h2>
+          <p className="mt-3 text-gray-600">Pick the mentorship level that fits your goals and timeline.</p>
+        </div>
+        <div className="mt-10 grid gap-6 sm:grid-cols-2">
+          {tiers.map((t, i) => (
+            <Card key={i} className={`rounded-2xl border-2 ${t.highlight ? "border-[var(--color-secondary)] shadow-lg" : "border-transparent shadow-sm"}`}>
+              <CardHeader>
+                <div className="text-sm font-medium text-gray-500">{t.name}</div>
+                <CardTitle className="text-4xl tracking-tight">{t.price}</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <ul className="space-y-3">
+                  {t.features.map((f, j) => (
+                    <li key={j} className="flex items-start gap-2">
+                      <CheckCircle2 className="mt-1 h-5 w-5" style={{ color: COLORS.primary }} />
+                      <span className="text-gray-700">{f}</span>
+                    </li>
+                  ))}
+                </ul>
+                <Button asChild size="lg" className="mt-6 w-full bg-[var(--color-primary)] hover:bg-[var(--color-primaryDark)]">
+                  <a href={t.href} target="_blank" rel="noreferrer" className="inline-flex items-center justify-center gap-2">
+                    Buy now <ArrowRight className="h-4 w-4" />
+                  </a>
+                </Button>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Outcomes() {
+  const items = [
+    { icon: <Sparkles className="h-5 w-5" />, title: "A published book", text: "You’ll hold your finished book—ISBN, retail links, and distribution included." },
+    { icon: <HeartHandshake className="h-5 w-5" />, title: "Nonprofit partnership", text: "Credible impact through aligned organizations and real-world events." },
+    { icon: <Megaphone className="h-5 w-5" />, title: "Launch support", text: "From readings to signings, we help you get your story into the world." },
+  ];
+
+  return (
+    <section id="outcomes" className="py-20">
+      <div className="mx-auto max-w-7xl px-4">
+        <div className="max-w-3xl">
+          <h2 className="text-3xl md:text-4xl font-bold">What you’ll walk away with</h2>
+          <p className="mt-3 text-gray-600">Professional publishing, mentorship, and momentum.</p>
+        </div>
+        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {items.map((it, i) => (
+            <Card key={i} className="rounded-2xl shadow-sm border-gray-200">
+              <CardHeader>
+                <div className="inline-flex h-10 w-10 items-center justify-center rounded-full" style={{ backgroundColor: COLORS.paper }}>
+                  {it.icon}
+                </div>
+                <CardTitle className="mt-2 text-xl">{it.title}</CardTitle>
+              </CardHeader>
+              <CardContent className="text-gray-600">{it.text}</CardContent>
+            </Card>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Testimonials() {
+  return (
+    <section id="community" className="py-20 bg-[var(--color-paper)]">
+      <div className="mx-auto max-w-7xl px-4">
+        <div className="grid lg:grid-cols-3 gap-6">
+          <div className="lg:col-span-1">
+            <h2 className="text-3xl md:text-4xl font-bold">A supportive, mission‑driven community</h2>
+            <p className="mt-3 text-gray-600">Authors, parents, students, and nonprofit partners who believe stories can move people to protect our planet.</p>
+            <div className="mt-6 flex gap-3">
+              <Button asChild className="bg-[var(--color-secondary)] hover:opacity-90">
+                <a href="https://www.instagram.com/authorsfornature/" target="_blank" rel="noreferrer">Follow on Instagram</a>
+              </Button>
+              <Button asChild variant="secondary">
+                <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">Connect on LinkedIn</a>
+              </Button>
+            </div>
+          </div>
+          <div className="lg:col-span-2 grid sm:grid-cols-2 gap-6">
+            {[1,2,3,4].map((i) => (
+              <Card key={i} className="rounded-2xl shadow-sm border-gray-200">
+                <CardContent className="pt-6">
+                  <blockquote className="text-gray-700">
+                    “This program made publishing feel possible. The mentorship was the difference.”
+                  </blockquote>
+                  <div className="mt-4 text-sm text-gray-500">— Young Author, Class of 2025</div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function CallToAction() {
+  return (
+    <section className="relative overflow-hidden">
+      <div className="absolute inset-0" aria-hidden>
+        <div className="absolute -inset-x-10 top-0 h-40 bg-[var(--color-accent)]/40 blur-2xl" />
+      </div>
+      <div className="relative mx-auto max-w-7xl px-4 py-16">
+        <div className="grid md:grid-cols-[1.2fr,1fr] items-center gap-8 rounded-3xl border p-8 md:p-12 shadow-sm" style={{ borderColor: COLORS.primary + "1A" }}>
+          <div>
+            <h3 className="text-2xl md:text-3xl font-bold">Ready to start your book?</h3>
+            <p className="mt-3 text-gray-600">Join our free challenge to pick your topic, outline your story, and meet mentors.</p>
+          </div>
+          <div className="flex flex-col sm:flex-row gap-3 sm:justify-end">
+            <Button asChild size="lg" className="bg-[var(--color-primary)] hover:bg-[var(--color-primaryDark)]">
+              <a href="https://www.authors-for-nature.mykajabi.com" target="_blank" rel="noreferrer">Join the free challenge</a>
+            </Button>
+            <Button asChild size="lg" variant="secondary">
+              <a href="#programs">See programs</a>
+            </Button>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function SiteFooter() {
+  return (
+    <footer className="border-t bg-white">
+      <div className="mx-auto max-w-7xl px-4 py-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div>
+          <div className="flex items-center gap-2 font-semibold">
+            <Leaf style={{ color: COLORS.primary }} className="h-6 w-6" />
+            <span>Authors for Nature</span>
+          </div>
+          <p className="mt-3 text-sm text-gray-600 max-w-xs">
+            Empowering young adults (13–25) to publish children’s books that protect nature and inspire change.
+          </p>
+        </div>
+        <div>
+          <div className="text-sm font-semibold">Programs</div>
+          <ul className="mt-3 space-y-2 text-sm text-gray-600">
+            <li><a href="#programs" className="hover:text-gray-900">Basic Bookmaking</a></li>
+            <li><a href="#programs" className="hover:text-gray-900">Pro Author Package</a></li>
+          </ul>
+        </div>
+        <div>
+          <div className="text-sm font-semibold">Community</div>
+          <ul className="mt-3 space-y-2 text-sm text-gray-600">
+            <li><a href="https://www.instagram.com/authorsfornature/" target="_blank" rel="noreferrer" className="hover:text-gray-900">Instagram</a></li>
+            <li><a href="https://www.linkedin.com/" target="_blank" rel="noreferrer" className="hover:text-gray-900">LinkedIn</a></li>
+            <li><a href="https://www.youtube.com/" target="_blank" rel="noreferrer" className="hover:text-gray-900">YouTube</a></li>
+          </ul>
+        </div>
+        <div>
+          <div className="text-sm font-semibold">Contact</div>
+          <ul className="mt-3 space-y-2 text-sm text-gray-600">
+            <li>info@authorsfornature.org</li>
+            <li>© {new Date().getFullYear()} Authors for Nature</li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+  );
+}
