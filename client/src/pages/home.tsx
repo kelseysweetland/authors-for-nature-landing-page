@@ -4,8 +4,9 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 
-// Hero image URL - a scenic forest landscape perfect for nature-themed content
-const HERO_URL = "https://images.unsplash.com/photo-1535905557558-afc4877a26fc?q=80&w=2400&auto=format&fit=crop";
+// Hero image URL - custom Authors for Nature illustration
+import heroImage from "@assets/Authors_For_Nature_1754604538308.jpg";
+const HERO_URL = heroImage;
 
 export default function Home() {
   return (
