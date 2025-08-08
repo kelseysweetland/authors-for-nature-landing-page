@@ -64,7 +64,7 @@ function Hero() {
       </div>
 
       <div className="relative mx-auto max-w-7xl px-4 py-28">
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="max-w-3xl text-white">
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="max-w-4xl text-white">
           <h1 className="text-4xl md:text-6xl font-extrabold leading-tight" data-testid="hero-title">
             Become a published author
             <span className="block text-nature-accent">and a force for nature.</span>
