@@ -1,0 +1,157 @@
+<!-- FAQ Section (Authors for Nature) -->
+<section id="faq" class="afn-faq" aria-labelledby="faq-title">
+  <div class="afn-faq__container">
+    <h2 id="faq-title" class="afn-faq__title">Commonly Asked Questions</h2>
+
+    <div class="afn-faq__list" role="list">
+      <!-- Items -->
+      <div class="afn-faq__item" role="listitem">
+        <button class="afn-faq__q" aria-expanded="false">
+          <span>What kinds of books does Authors for Nature publish?</span>
+          <span class="afn-faq__chev">▶</span>
+        </button>
+        <div class="afn-faq__a" hidden>
+          We publish works where environmental or natural themes are central, and the primary aim is to promote protection and preservation of the natural world.
+        </div>
+      </div>
+
+      <div class="afn-faq__item" role="listitem">
+        <button class="afn-faq__q" aria-expanded="false">
+          <span>Do submissions need to include factual environmental content?</span>
+          <span class="afn-faq__chev">▶</span>
+        </button>
+        <div class="afn-faq__a" hidden>
+          Yes. Environmental messages must be accurate and integrated into the narrative or educational material—not tacked on as a minor reference.
+        </div>
+      </div>
+
+      <div class="afn-faq__item" role="listitem">
+        <button class="afn-faq__q" aria-expanded="false">
+          <span>Do you accept children’s picture books?</span>
+          <span class="afn-faq__chev">▶</span>
+        </button>
+        <div class="afn-faq__a" hidden>
+          Absolutely. Picture books are welcome as long as nature is central and the story clearly inspires care for the planet.
+        </div>
+      </div>
+
+      <div class="afn-faq__item" role="listitem">
+        <button class="afn-faq__q" aria-expanded="false">
+          <span>Can my story be fiction, or do you only accept nonfiction?</span>
+          <span class="afn-faq__chev">▶</span>
+        </button>
+        <div class="afn-faq__a" hidden>
+          Both are accepted. Fiction must still carry an accurate, meaningful environmental theme that’s core to the story.
+        </div>
+      </div>
+
+      <div class="afn-faq__item" role="listitem">
+        <button class="afn-faq__q" aria-expanded="false">
+          <span>How do I submit my manuscript?</span>
+          <span class="afn-faq__chev">▶</span>
+        </button>
+        <div class="afn-faq__a" hidden>
+          Submit via our “Join” page form. Include a brief synopsis, intended audience, and how your work advances environmental protection.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .afn-faq { background: var(--color-paper); padding: 5rem 1rem; font-family: 'Inter', sans-serif; }
+  .afn-faq__container { max-width: 72rem; margin: 0 auto; }
+  .afn-faq__title { font-weight: 800; font-size: clamp(2rem, 1.2rem + 2vw, 3rem); letter-spacing: -0.02em; margin-bottom: .75rem; color: var(--color-ink); }
+  .afn-faq__list { display: grid; gap: 1rem; }
+
+  .afn-faq__item { 
+    background: #fff;
+    border: 1px solid rgba(0,0,0,0.08);
+    border-radius: 1.25rem; 
+    box-shadow: 0 4px 18px rgba(0,0,0,0.06); 
+    overflow: hidden; position: relative; 
+    transition: border-color .4s ease, box-shadow .6s ease, background-color .4s ease;
+  }
+  .afn-faq__item.is-open { border-color: color-mix(in oklab, var(--color-secondary) 40%, #fff); background: color-mix(in oklab, var(--color-primary) 8%, #fff); box-shadow: 0 8px 26px rgba(0,168,150,0.28); }
+
+  .afn-faq__q { 
+    width: 100%; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: .75rem;
+    padding: 1.25rem 1.25rem; background: transparent; border: none; cursor: pointer; text-align: left; 
+    font-weight: 400; font-size: 1.125rem; color: var(--color-ink);
+  }
+  .afn-faq__q:focus-visible { outline: 3px solid color-mix(in oklab, var(--color-secondary) 45%, transparent); outline-offset: 2px; border-radius: .75rem; }
+
+  .afn-faq__chev { transition: transform .25s ease, color .25s ease; color: var(--color-secondary); font-weight: 900; }
+  .afn-faq__q[aria-expanded="true"] .afn-faq__chev { transform: rotate(90deg); color: var(--color-primary); }
+
+  .afn-faq__a { 
+    padding: 0 1.25rem 1.25rem; color: #5b6975; line-height: 1.7; font-size: 1rem; font-family: 'Inter', sans-serif;
+    overflow: hidden; max-height: 0; opacity: 0; transition: max-height .4s ease, opacity .4s ease, padding-top .4s ease;
+  }
+  .afn-faq__a.is-open { opacity: 1; padding-top: .5rem; }
+
+  .afn-faq__item::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 0; background: var(--color-secondary); transition: width .4s ease; border-top-left-radius: 1.25rem; border-bottom-left-radius: 1.25rem; opacity: 0.15; }
+  .afn-faq__item.is-open::before { width: 6px; opacity: 0.25; }
+
+  .afn-faq__q:hover { color: var(--color-primaryDark); }
+  .afn-faq__q:hover .afn-faq__chev { color: var(--color-primary); }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const root = document.getElementById('faq');
+    if (!root) return;
+    const items = Array.from(root.querySelectorAll('.afn-faq__item'));
+
+    function closeAll(except){
+      items.forEach((it) => {
+        if (it === except) return;
+        const btn = it.querySelector('.afn-faq__q');
+        const panel = it.querySelector('.afn-faq__a');
+        if (btn.getAttribute('aria-expanded') === 'true') {
+          btn.setAttribute('aria-expanded', 'false');
+          panel.style.maxHeight = panel.scrollHeight + 'px';
+          requestAnimationFrame(() => {
+            panel.style.maxHeight = 0;
+            panel.style.opacity = 0;
+            panel.classList.remove('is-open');
+          });
+          it.classList.remove('is-open');
+          panel.addEventListener('transitionend', () => { panel.hidden = true; }, { once: true });
+        }
+      });
+    }
+
+    items.forEach((it) => {
+      const btn = it.querySelector('.afn-faq__q');
+      const panel = it.querySelector('.afn-faq__a');
+
+      btn.addEventListener('click', () => {
+        const isOpen = btn.getAttribute('aria-expanded') === 'true';
+        if (!isOpen) {
+          closeAll(it);
+          btn.setAttribute('aria-expanded', 'true');
+          panel.hidden = false;
+          panel.style.maxHeight = '0px';
+          panel.style.opacity = 0;
+          requestAnimationFrame(() => {
+            panel.classList.add('is-open');
+            panel.style.maxHeight = panel.scrollHeight + 'px';
+            panel.style.opacity = 1;
+          });
+          it.classList.add('is-open');
+        } else {
+          btn.setAttribute('aria-expanded', 'false');
+          panel.style.maxHeight = panel.scrollHeight + 'px';
+          requestAnimationFrame(() => {
+            panel.classList.remove('is-open');
+            panel.style.maxHeight = 0;
+            panel.style.opacity = 0;
+          });
+          it.classList.remove('is-open');
+          panel.addEventListener('transitionend', () => { panel.hidden = true; }, { once: true });
+        }
+      });
+    });
+  });
+</script>

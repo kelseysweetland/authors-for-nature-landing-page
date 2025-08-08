@@ -4,6 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import SlingshotAwardSection from "@/components/SlingshotAwardSection";
+import FaqSection from "@/components/FaqSection";
 
 // Hero image URL - custom Authors for Nature illustration
 import heroImage from "@assets/Authors_For_Nature_1754604538308.jpg";
@@ -20,6 +21,7 @@ export default function Home() {
       <Programs />
       <Outcomes />
       <Testimonials />
+      <FaqSection />
       <CallToAction />
       <SiteFooter />
     </div>
@@ -117,8 +119,8 @@ function HowItWorks() {
   const steps = [
     {
       icon: <Globe2 className="h-5 w-5" />,
-      title: "Pick a UN SDG",
-      text: "Choose a goal that inspires you and partner with an aligned nonprofit.",
+      title: "Pick an environmental nonprofit",
+      text: "Choose an environmental goal that inspires you and partner with an aligned nonprofit.",
     },
     {
       icon: <BookOpen className="h-5 w-5" />,
@@ -127,8 +129,8 @@ function HowItWorks() {
     },
     {
       icon: <Megaphone className="h-5 w-5" />,
-      title: "Publish & promote",
-      text: "We handle distribution and help you launch with readings and events.",
+      title: "Publish & make a difference",
+      text: "We publish your book while you bring awareness, donations, and true impact to your environmental mission.",
     },
   ];
 
