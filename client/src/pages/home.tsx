@@ -74,9 +74,9 @@ function Hero() {
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Button asChild size="lg" className="bg-nature-secondary hover:opacity-90" data-testid="button-join-community">
-              <Link href="/join" className="inline-flex items-center gap-2">
+              <a href="https://authors-for-nature.mykajabi.com/signup" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2">
                 Join the community <ArrowRight className="h-5 w-5" />
-              </Link>
+              </a>
             </Button>
             <Button asChild size="lg" variant="secondary" className="bg-white/90 text-nature-ink hover:bg-white" data-testid="button-how-works">
               <a href="#how">See how it works</a>
@@ -335,9 +335,9 @@ function CallToAction() {
         <p className="mt-4 text-lg text-primary-foreground/90 max-w-2xl mx-auto" data-testid="cta-description">Join other young writers making a difference through storytelling. Your voice matters, and your story can change the world.</p>
         <div className="mt-8 flex flex-wrap justify-center gap-4">
           <Button asChild size="lg" className="bg-nature-secondary hover:opacity-90 text-lg" data-testid="button-start-journey">
-            <Link href="/join" className="inline-flex items-center gap-2">
+            <a href="https://authors-for-nature.mykajabi.com/signup" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2">
               Start your journey <ArrowRight className="h-5 w-5" />
-            </Link>
+            </a>
           </Button>
           <Button asChild size="lg" variant="secondary" className="bg-white/20 hover:bg-white/30 text-primary-foreground text-lg" data-testid="button-learn-more">
             <a href="#how">Learn more</a>
@@ -386,7 +386,7 @@ function SiteFooter() {
           <div>
             <h3 className="font-semibold mb-4 text-white" data-testid="footer-resources-title">Resources</h3>
             <ul className="space-y-2 text-sm text-gray-400">
-              <li><a href="https://www.authors-for-nature.mykajabi.com/login" target="_blank" rel="noreferrer" className="hover:text-white transition-colors" data-testid="footer-login-link">Student Login</a></li>
+              <li><a href="https://authors-for-nature.mykajabi.com/signup" target="_blank" rel="noreferrer" className="hover:text-white transition-colors" data-testid="footer-login-link">Student Login</a></li>
               <li><a href="#" className="hover:text-white transition-colors" data-testid="footer-writing-link">Writing Resources</a></li>
               <li><a href="#" className="hover:text-white transition-colors" data-testid="footer-publishing-link">Publishing Guide</a></li>
               <li><a href="#" className="hover:text-white transition-colors" data-testid="footer-sdg-link">UN SDG Information</a></li>
