@@ -42,7 +42,7 @@ function SiteHeader() {
         </nav>
         <div className="flex items-center gap-2">
           <Button asChild variant="ghost" className="hidden sm:inline-flex" data-testid="button-login"> 
-            <a href="https://www.authors-for-nature.mykajabi.com/login" target="_blank" rel="noreferrer">Log in</a>
+            <a href="https://authors-for-nature.mykajabi.com/login" target="_blank" rel="noreferrer">Log in</a>
           </Button>
           <Button asChild className="bg-nature-primary hover:bg-nature-primary-dark" data-testid="button-join">
             <Link href="/join" className="inline-flex items-center gap-2">
