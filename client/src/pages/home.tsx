@@ -380,7 +380,7 @@ function SiteFooter() {
               <li><a href="https://www.instagram.com/authorsfornature/" target="_blank" rel="noreferrer" className="hover:text-white transition-colors" data-testid="footer-instagram-link">Instagram</a></li>
               <li><a href="https://www.linkedin.com/" target="_blank" rel="noreferrer" className="hover:text-white transition-colors" data-testid="footer-linkedin-link">LinkedIn</a></li>
               <li><a href="#community" className="hover:text-white transition-colors" data-testid="footer-testimonials-link">Testimonials</a></li>
-              <li><a href="mailto:hello@authorsfornature.org" className="hover:text-white transition-colors" data-testid="footer-contact-link">Contact Us</a></li>
+              <li><a href="mailto:authorsfornature@gmail.com" className="hover:text-white transition-colors" data-testid="footer-contact-link">Contact Us</a></li>
             </ul>
           </div>
           <div>

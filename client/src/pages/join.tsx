@@ -157,7 +157,7 @@ function AccountCreation() {
         <div className="mt-12 text-center">
           <p className="text-muted-foreground text-sm max-w-2xl mx-auto">
             Both programs include guaranteed publishing and access to our supportive community. 
-            Questions? <a href="mailto:support@authorsfornature.org" className="text-nature-primary hover:underline">Contact us</a> for guidance.
+            Questions? <a href="mailto:authorsfornature@gmail.com" className="text-nature-primary hover:underline">Contact us</a> for guidance.
           </p>
         </div>
       </div>
@@ -183,7 +183,7 @@ function JoinFooter() {
           <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer" className="text-muted-foreground hover:text-nature-primary">
             LinkedIn
           </a>
-          <a href="mailto:support@authorsfornature.org" className="text-muted-foreground hover:text-nature-primary">
+          <a href="mailto:authorsfornature@gmail.com" className="text-muted-foreground hover:text-nature-primary">
             Contact
           </a>
         </div>
