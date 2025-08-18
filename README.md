@@ -1,10 +1,45 @@
-# Authors for Nature - Cloudflare Deployment Guide
+# Authors for Nature - Deployment Guide
 
-This repository contains a **full-stack application** that runs on Replit, but for Cloudflare deployment, we are **ONLY building and deploying the frontend** as a static site.
+This repository contains a **full-stack application** with multiple deployment options:
 
-## Important Notes
+## Deployment Options
 
-⚠️ **Frontend-Only Cloudflare Deployment**: This Cloudflare setup deploys ONLY the frontend React app as static files. The backend Express server is NOT deployed to Cloudflare.
+### Option 1: Docker Full-Stack Deployment (Complete Application)
+
+Deploy the entire application including both frontend and backend using Docker:
+
+```bash
+# Using Docker Compose (recommended)
+docker-compose up --build
+
+# Or using Docker directly
+docker build -t authors-for-nature .
+docker run -p 3000:5000 authors-for-nature
+```
+
+**Docker deployment includes**:
+- React frontend built with Vite
+- Express backend with API routes and database connectivity
+- Health check endpoint at `/health`
+- Production-ready configuration
+- Automatic restarts and monitoring
+
+**Access points**:
+- **Main app**: http://localhost:3000
+- **Health check**: http://localhost:3000/health
+- **API routes**: http://localhost:3000/api/*
+
+**Architecture**: Self-contained full-stack application with both frontend and backend running in a single container.
+
+---
+
+### Option 2: Cloudflare Frontend-Only Deployment (Static Site)
+
+Deploy **ONLY the frontend** as a static site to Cloudflare Pages. This option does **NOT** include the backend.
+
+## Important Notes for Cloudflare Deployment
+
+⚠️ **Frontend-Only**: This Cloudflare setup deploys ONLY the frontend React app as static files. The backend Express server is NOT deployed to Cloudflare.
 
 ⚠️ **Replit Full-Stack Preserved**: All Replit configuration and full-stack functionality remains intact and operational for development on Replit.
 
@@ -24,7 +59,7 @@ This repository contains a **full-stack application** that runs on Replit, but f
 2. Login to Cloudflare: `wrangler login`
 3. Enable R2 in your Cloudflare dashboard
 
-## Development Commands
+## Cloudflare Development Commands
 
 ### Local Development
 ```bash
@@ -41,7 +76,7 @@ npm run build:frontend
 npm run build:frontend
 ```
 
-## Deployment Commands
+## Cloudflare Deployment Commands
 
 ### Initial Setup (One-time)
 
