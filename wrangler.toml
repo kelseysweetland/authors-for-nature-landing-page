@@ -1,15 +1,2 @@
 name = "authors-for-nature"
-compatibility_date = "2024-08-17"
-
-# Cloudflare Pages configuration
-# This tells wrangler to deploy the frontend static files only
-[site]
-bucket = "./dist/public"
-
-# Build configuration
-[build]
-command = "npm run build:frontend"
-
-# Optional: Environment variables if needed for the frontend
-# [vars]
-# VITE_API_URL = "https://api.example.com"
+compatibility_date = "2025-08-18"
