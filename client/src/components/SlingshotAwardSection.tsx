@@ -1,7 +1,8 @@
-import videoFile from "@assets/slingshot-video.mp4";
 import thumbnailImage from "@assets/slingshot-screenshot.png";
 
 export default function SlingshotAwardSection() {
+  const videoUrl = "https://pub-9be65ed062f448db8db00d71c1e6bde6.r2.dev/slingshot-video.mp4";
+  
   return (
     <section className="relative py-8 bg-white flex flex-col items-center overflow-hidden">
       <div className="max-w-4xl w-full mx-auto flex flex-col md:flex-row items-center">
@@ -13,7 +14,7 @@ export default function SlingshotAwardSection() {
             poster={thumbnailImage}
             data-testid="slingshot-video"
           >
-            <source src={videoFile} type="video/mp4" />
+            <source src={videoUrl} type="video/mp4" />
             Your browser does not support the video tag.
           </video>
         </div>
