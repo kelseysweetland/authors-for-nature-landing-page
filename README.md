@@ -103,8 +103,8 @@ wrangler r2 bucket create authors-for-nature-assets
 # Build first
 npm run build:frontend
 
-# Deploy to Cloudflare Pages
-wrangler pages publish ./dist/public --project-name authors-for-nature --commit-dirty=true
+# Deploy to Cloudflare Pages (use deploy, not publish)
+wrangler pages deploy ./dist/public --project-name authors-for-nature --commit-dirty=true
 ```
 
 ## Large File Deployment (>26.2MB)
@@ -221,27 +221,23 @@ wrangler pages deployment promote <deployment-id> --project-name authors-for-nat
 1. **"File too large" error**: Move large files (>26.2MB) to R2 and update code to reference R2 URLs (see Large File Deployment section)
 2. **"Project not found"**: Create the project first with `wrangler pages project create`
 3. **"R2 not enabled"**: Enable R2 in Cloudflare dashboard before creating buckets
-4. **"Missing entry-point"**: Don't use `wrangler publish` for static sites, use `wrangler pages publish`
+4. **"Missing entry-point"**: Use `wrangler pages deploy` for static sites, not `wrangler publish`
 5. **"401 Unauthorized" on R2 URLs**: R2 bucket not configured for public access - enable in dashboard
 6. **Video/large files not loading**: Verify R2 public URL returns `200 OK` with `curl -I`
 
-### Correct vs Incorrect Commands
+### Deployment Commands
 
-✅ **Correct (Pages)**:
+For Cloudflare Pages static deployment:
 ```bash
 wrangler pages dev ./dist/public
-wrangler pages publish ./dist/public --project-name authors-for-nature
+wrangler pages deploy ./dist/public --project-name authors-for-nature
 ```
 
-❌ **Incorrect (Workers)**:
-```bash
-wrangler dev
-wrangler publish
-```
+Note: `wrangler pages publish` has been deprecated in favor of `wrangler pages deploy`.
 
 ## URLs
 
-- **Live Site**: https://authors-for-nature.pages.dev
+- **Live Site**: https://authors-for-nature-7cl.pages.dev
 - **Development**: http://localhost:8788 (when running `wrangler pages dev`)
 - **R2 Assets**: https://pub-9be65ed062f448db8db00d71c1e6bde6.r2.dev/
 
