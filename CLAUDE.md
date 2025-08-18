@@ -21,9 +21,15 @@ Example: Say "put your website online" instead of "deploy to production"
 
 When the user says "help", respond with a simple, friendly list of things they can ask for:
 
+### Save My Work Instructions
+When the user says "save my work", you must:
+1. Save all changes locally (git add and commit)  
+2. Upload changes to the cloud (git push)
+3. Confirm both steps completed successfully
+
 **What You Can Tell Me:**
 - **"publish my site"** - Put your website on the internet for everyone to see
-- **"save my work"** - Save everything you've done (like hitting save in a document)
+- **"save my work"** - Save everything you've done and upload it to the cloud (like hitting save in a document and backing it up)
 - **"start my website"** - Open your website so you can see it and make changes
 - **"show me my site"** - Same as start - lets you see your website
 
