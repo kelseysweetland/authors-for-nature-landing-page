@@ -250,11 +250,22 @@ function AIPhilosophy() {
   return (
     <section className="py-20">
       <div className="mx-auto max-w-7xl px-4">
-        <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold" data-testid="ai-philosophy-title">Our AI Philosophy</h2>
-          <p className="mt-6 text-muted-foreground text-lg leading-relaxed" data-testid="ai-philosophy-description">
-            We believe in using AI as a powerful tool to enhance creativity and streamline the publishing process, while keeping the human voice and vision at the center of every story. Our specialized AI assistants help young authors bring their environmental messages to life more efficiently, allowing them to focus on what matters most—inspiring change and protecting our planet.
-          </p>
+        <div className="max-w-3xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-center" data-testid="ai-philosophy-title">Our AI Philosophy</h2>
+          <div className="mt-6 space-y-6 text-muted-foreground text-lg leading-relaxed text-left" data-testid="ai-philosophy-description">
+            <p>
+              At Authors for Nature, we believe that people, not AI, should create art. While many of us fear that AI will replace artists, at Authors for Nature, we believe the opposite.
+            </p>
+            <p>
+              In the age of Generative AI, we need creators and innovators now, more than ever. Anyone can access AI, but people with ideas, dreams, and purpose will be able to use this incredibly powerful tool to have a larger impact than any one person or AI alone. A person can be replaced by an AI, but a person who knows how to use AI ethically to amplify and support their own abilities, never will. For this reason, Authors for Nature teaches students not only how to make a book, but also empowers them to be creators and activists with a mission.
+            </p>
+            <p>
+              Students have access to our specialized book-making and publishing AIs which streamline the book-making process. They teach students new skills, clarify next steps, and resolve confusion. We provide basic education on how to use these and other AIs in the Authors for Nature video course.
+            </p>
+            <p>
+              We teach students how to amplify their mission and creative voice with AI, rather than using it to replace them. Authors for Nature students graduate with a published book, a mission to help the planet, and a foundation in AI literacy and ethics so they can leave as passionate, competent, and powerful change makers.
+            </p>
+          </div>
         </div>
       </div>
     </section>
@@ -372,7 +383,7 @@ function AboutFounder() {
             />
           </div>
           {/* Text on the right */}
-          <div className="flex flex-col justify-center space-y-4">
+          <div className="flex flex-col justify-center space-y-6">
             <p className="text-muted-foreground text-lg leading-relaxed indent-8" data-testid="about-founder-paragraph-1">
               Hi! My name is Kelsey Sweetland. I am 19 years old, a four-time published author, and the founder of Authors for Nature.
             </p>
