@@ -4,23 +4,23 @@ import { ChevronRight } from "lucide-react";
 const faqData = [
   {
     question: "What kinds of books does Authors for Nature publish?",
-    answer: "We publish works where environmental or natural themes are central, and the primary aim is to promote protection and preservation of the natural world."
+    answer: "We're excited to publish stories where environmental or natural themes take center stage. Whether you're passionate about ocean conservation, wildlife protection, or climate action, we celebrate creative works that inspire readers to care for our planet. Your unique voice and perspective are what make these stories powerful."
+  },
+  {
+    question: "What age group does Authors for Nature publish?",
+    answer: "We focus on helping young adults (ages 13-25) create and publish books, but if you are younger or older, we would still be happy to work with you. Reach out to authorsfornature@gmail.com with your questions!"
   },
   {
     question: "Do submissions need to include factual environmental content?",
-    answer: "Yes. Environmental messages must be accurate and integrated into the narrative or educational material—not tacked on as a minor reference."
+    answer: "Yes, and we love helping you get this right. Your environmental message should be woven naturally into your story—think of it as the heartbeat of your book. We're here to support you in making sure your facts are accurate while keeping your creative vision intact. It's all about authentic storytelling that makes a real difference."
   },
   {
-    question: "Do you accept children's picture books?",
-    answer: "Absolutely. Picture books are welcome as long as nature is central and the story clearly inspires care for the planet."
+    question: "Do you only accept children's picture books?",
+    answer: "While we specialize in helping young adults publish children's books that raise awareness about environmental issues, we also accept other book formats! Reach out to authorsfornature@gmail.com if you have any questions."
   },
   {
     question: "Can my story be fiction, or do you only accept nonfiction?",
-    answer: "Both are accepted. Fiction must still carry an accurate, meaningful environmental theme that's core to the story."
-  },
-  {
-    question: "How do I submit my manuscript?",
-    answer: "Submit via our \"Join\" page form. Include a brief synopsis, intended audience, and how your work advances environmental protection."
+    answer: "Both fiction and nonfiction are warmly welcomed. Fiction has this amazing power to touch hearts and change minds through storytelling magic. As long as your environmental message is meaningful and accurate (even in fantastical settings), we're here to help you share your vision with the world. Every story format has its place in creating environmental awareness."
   }
 ];
 
@@ -34,7 +34,7 @@ export default function FaqSection() {
   return (
     <section id="faq" className="bg-nature-paper py-20" data-testid="faq-section">
       <div className="mx-auto max-w-6xl px-4">
-        <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight mb-12 text-nature-ink text-center" data-testid="faq-title">
+        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-nature-ink" data-testid="faq-title">
           Commonly Asked Questions
         </h2>
 

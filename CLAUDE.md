@@ -30,8 +30,9 @@ When the user says "save my work", you must:
 **What You Can Tell Me:**
 - **"publish my site"** - Put your website on the internet for everyone to see
 - **"save my work"** - Save everything you've done and upload it to the cloud (like hitting save in a document and backing it up)
-- **"start my website"** - Open your website so you can see it and make changes
-- **"show me my site"** - Same as start - lets you see your website
+- **"start my website"** - Open your website so you can see it and make changes (frontend only)
+- **"show me my site"** - Same as start - lets you see your website (frontend only)
+- **"open a preview"** - Same as start - opens your website for preview (frontend only)
 
 **Questions You Can Ask:**
 - How does my website work?

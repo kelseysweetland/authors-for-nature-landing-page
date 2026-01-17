@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Leaf, BookOpen, Sparkles, CheckCircle2, HeartHandshake, Globe2, Megaphone } from "lucide-react";
+import { ArrowRight, Leaf, BookOpen, Sparkles, CheckCircle2, HeartHandshake, Globe2, Megaphone, ExternalLink } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
@@ -8,6 +8,10 @@ import FaqSection from "@/components/FaqSection";
 
 // Hero image URL - custom Authors for Nature illustration
 import heroImage from "@assets/Authors_For_Nature_1754604538308.jpg";
+import alishaPatelImage from "@assets/alisha_photo_converted.jpg";
+import endangeredAnimalsOceanCover from "@assets/Endangered Animals of The Ocean Cover.png";
+import alfredIvanCover from "@assets/Alfred and Ivan's Adventure Cover.png";
+import founderImage from "@assets/IMG_4819-EV copy.jpg";
 const HERO_URL = heroImage;
 
 export default function Home() {
@@ -17,11 +21,14 @@ export default function Home() {
       <Hero />
       <TrustBar />
       <HowItWorks />
+      <RecentBooks />
       <SlingshotAwardSection />
+      <AIPhilosophy />
       <Programs />
-      <Outcomes />
-      <Testimonials />
       <FaqSection />
+      <Outcomes />
+      <AboutFounder />
+      <Testimonials />
       <CallToAction />
       <SiteFooter />
     </div>
@@ -72,7 +79,7 @@ function Hero() {
             <span className="block text-nature-accent">and a force for nature.</span>
           </h1>
           <p className="mt-6 text-lg text-white/90" data-testid="hero-description">
-            A guided program for ages 13–25 to create, publish, and promote a children's book that advances a UN Sustainable Development Goal.
+            A program to help young adults become environmental authors and inspire global change.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Button asChild size="lg" className="bg-nature-secondary hover:opacity-90" data-testid="button-join-community">
@@ -96,10 +103,9 @@ function Hero() {
 function TrustBar() {
   return (
     <section className="bg-nature-paper/80 border-y border-border">
-      <div className="mx-auto max-w-7xl px-4 py-6 grid grid-cols-2 md:grid-cols-4 gap-6 items-center">
-        <Stat kpi="400+" label="community members" />
+      <div className="mx-auto max-w-7xl px-4 py-6 grid grid-cols-1 md:grid-cols-3 gap-6 items-center justify-center">
         <Stat kpi="4" label="founder‑published books" />
-        <Stat kpi="10+" label="nonprofit partners" />
+        <Stat kpi="2" label="youth author books published" />
         <Stat kpi="100%" label="publishing support" />
       </div>
     </section>
@@ -159,6 +165,102 @@ function HowItWorks() {
   );
 }
 
+function RecentBooks() {
+  const books = [
+    {
+      title: "Endangered Animals of The Ocean",
+      author: "Alisha Patel",
+      illustrator: "Saige Sefcik",
+      school: "Castilleja School",
+      partnerNonprofit: "Mission Blue",
+      description: "Follow Goldie the goldfish on her adventure as she discovers and meets the unique animals of the sea. Endangered Animals of the Sea, is written by Alisha (Nyx) Patel and illustrated by Saige Sefcik, two 16 year old environmental advocates who hope to bring more awareness to environmental issues to kids and families. Endangered Animals of the Sea is their first book!",
+      amazonLink: "https://www.amazon.com/Endangered-Animals-Ocean-Alisha-Patel/dp/B0F9WJ9M5H",
+      coverImage: endangeredAnimalsOceanCover,
+    },
+    {
+      title: "Alfred & Ivan's Adventure",
+      author: "Vanessa Harnish",
+      illustrator: "Sophie Liew",
+      school: "Hillbrook School",
+      partnerNonprofit: "Mission Blue and Save the Whales",
+      description: "Alfred and Ivan's Adventure is a story of two fin whale brothers who get lost and need to find their way to the feeding grounds. Alfred and Ivan's Adventure is written by Vanessa Harnish and illustrated by Sophie Liew, two 14 year old eighth grade students trying to spread awareness about endangered animals to kids and families.",
+      amazonLink: "http://amazon.com/Alfred-Ivans-Adventure-Vanessa-Harnish/dp/B0FHPRBDLX",
+      coverImage: alfredIvanCover,
+    }
+  ];
+
+  return (
+    <section className="py-20 bg-nature-paper">
+      <div className="mx-auto max-w-7xl px-4">
+        <div className="max-w-3xl">
+          <h2 className="text-3xl md:text-4xl font-bold" data-testid="recent-books-title">Recently Published Books</h2>
+          <p className="mt-3 text-muted-foreground" data-testid="recent-books-description">Stories making a difference, written by our young environmental advocates.</p>
+        </div>
+        <div className="mt-10 grid gap-12 sm:grid-cols-2 lg:grid-cols-2">
+          {books.map((book, i) => (
+            <div key={i} className="flex flex-col h-full" data-testid={`book-card-${i + 1}`}>
+              <div className="p-8 flex justify-center">
+                <div className="w-72 h-96 flex items-center justify-center">
+                  <img 
+                    src={book.coverImage} 
+                    alt={`${book.title} book cover`} 
+                    className="max-w-full max-h-full object-contain rounded-lg shadow-md"
+                    data-testid={`book-cover-${i + 1}`}
+                  />
+                </div>
+              </div>
+              <div className="px-8 pb-8 flex-1 flex flex-col">
+                <div className="mb-4">
+                  <h3 className="text-3xl font-bold text-nature-primary mb-3 leading-tight" data-testid={`book-title-${i + 1}`}>
+                    {book.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground mb-1">
+                    By <span className="font-medium">{book.author}</span>
+                    {book.illustrator && <>, Illustrated by <span className="font-medium">{book.illustrator}</span></>}
+                  </p>
+                  <div className="flex flex-wrap gap-2 mt-2">
+                    <span className="inline-flex items-center rounded-full bg-nature-secondary/20 px-2.5 py-0.5 text-xs font-medium text-nature-secondary">
+                      {book.school}
+                    </span>
+                    <span className="inline-flex items-center rounded-full bg-blue-100 px-2.5 py-0.5 text-xs font-medium text-blue-800">
+                      Partner: {book.partnerNonprofit}
+                    </span>
+                  </div>
+                </div>
+                <div className="flex-1 flex flex-col">
+                  <p className="text-muted-foreground text-sm leading-relaxed mb-4 flex-1" data-testid={`book-description-${i + 1}`}>
+                    {book.description}
+                  </p>
+                  <Button asChild className="w-full bg-nature-primary hover:bg-nature-primary-dark mt-auto" data-testid={`book-amazon-button-${i + 1}`}>
+                    <a href={book.amazonLink} target="_blank" rel="noreferrer" className="inline-flex items-center justify-center gap-2">
+                      Buy on Amazon <ExternalLink className="h-4 w-4" />
+                    </a>
+                  </Button>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function AIPhilosophy() {
+  return (
+    <section className="py-20">
+      <div className="mx-auto max-w-7xl px-4">
+        <div className="max-w-3xl mx-auto text-center">
+          <h2 className="text-3xl md:text-4xl font-bold" data-testid="ai-philosophy-title">Our AI Philosophy</h2>
+          <p className="mt-6 text-muted-foreground text-lg leading-relaxed" data-testid="ai-philosophy-description">
+            We believe in using AI as a powerful tool to enhance creativity and streamline the publishing process, while keeping the human voice and vision at the center of every story. Our specialized AI assistants help young authors bring their environmental messages to life more efficiently, allowing them to focus on what matters most—inspiring change and protecting our planet.
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Programs() {
   const tiers = [
     {
@@ -167,8 +269,6 @@ function Programs() {
       features: [
         "Video course led by Kelsey Sweetland",
         "Guaranteed publishing (Amazon, B&N, more)",
-        "One 1:1 mentoring session",
-        "Nonprofit partnership guidance",
       ],
       href: "https://authors-for-nature.mykajabi.com/offers/QL3iybzo/checkout",
       highlight: false,
@@ -177,10 +277,10 @@ function Programs() {
       name: "Pro Author Package",
       price: "$1,500",
       features: [
-        "Ten 1:1 mentoring sessions",
-        "Personalized nonprofit introductions",
-        "Video course + advanced templates",
-        "Full launch & promo playbook",
+        "Video course led by Kelsey Sweetland",
+        "Guaranteed publishing (Amazon, B&N, more)",
+        "Post-publication interview on the Authors for Nature Podcast",
+        "Access to our specialized bookmaking and publishing AIs",
       ],
       href: "https://authors-for-nature.mykajabi.com/offers/2Fck7A7E/checkout",
       highlight: true,
@@ -256,31 +356,46 @@ function Outcomes() {
   );
 }
 
+function AboutFounder() {
+  return (
+    <section className="py-20 bg-nature-paper">
+      <div className="mx-auto max-w-6xl px-4">
+        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center" data-testid="about-founder-title">About Our Founder</h2>
+        <div className="grid md:grid-cols-2 gap-4 items-center">
+          {/* Photo on the left */}
+          <div className="flex justify-center">
+            <img
+              src={founderImage}
+              alt="Kelsey Sweetland, Founder of Authors for Nature"
+              className="rounded-lg shadow-lg w-full max-w-xs object-cover"
+              data-testid="founder-image"
+            />
+          </div>
+          {/* Text on the right */}
+          <div className="flex flex-col justify-center space-y-4">
+            <p className="text-muted-foreground text-lg leading-relaxed indent-8" data-testid="about-founder-paragraph-1">
+              Hi! My name is Kelsey Sweetland. I am 19 years old, a four-time published author, and the founder of Authors for Nature.
+            </p>
+            <p className="text-muted-foreground text-lg leading-relaxed indent-8" data-testid="about-founder-paragraph-2">
+              When I was 12, I began writing and publishing children's books to raise awareness about the numerous environmental issues affecting our planet. Four years and four books later, I founded Authors for Nature to empower youth to become published authors and environmental change-makers.
+            </p>
+            <p className="text-muted-foreground text-lg leading-relaxed indent-8" data-testid="about-founder-paragraph-3">
+              By joining our community, you become part of a group of motivated authors, artists, innovators, students, families, and nonprofits who are all aligned with one belief: that we can make a difference and save our planet.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Testimonials() {
   const testimonials = [
     {
-      quote: "Publishing my book about ocean conservation was incredible. The mentorship helped me connect with actual marine biologists and see real impact.",
-      name: "Emma K.",
-      role: "Age 16, Student Author",
-      image: "https://images.unsplash.com/photo-1544723795-3fb6469f5b39?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&h=300"
-    },
-    {
-      quote: "From idea to Amazon in 6 months. The community support and professional guidance made all the difference in my publishing journey.",
-      name: "Marcus R.",
-      role: "Age 22, Published Author", 
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&h=300"
-    },
-    {
-      quote: "Watching my daughter grow from shy teenager to confident author and environmental advocate has been amazing. This program is truly transformative.",
-      name: "Sarah M.",
-      role: "Parent",
-      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&h=300"
-    },
-    {
-      quote: "These young authors bring fresh perspectives to environmental issues. Their books help us reach new audiences and inspire action.",
-      name: "Dr. James L.",
-      role: "Nonprofit Partner",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&h=300"
+      quote: "Learning how to create and publish a book has been an amazing experience. It was so moving to know my book, Endangered Animals of the Ocean, inspired my little cousins to become marine biologists!",
+      name: "Alisha Patel",
+      role: "Author of: Endangered Animals of the Ocean, Age 16",
+      image: alishaPatelImage
     }
   ];
 
@@ -295,8 +410,8 @@ function Testimonials() {
               <Button asChild className="bg-nature-secondary hover:opacity-90" data-testid="button-instagram">
                 <a href="https://www.instagram.com/authorsfornature/" target="_blank" rel="noreferrer">Follow on Instagram</a>
               </Button>
-              <Button asChild variant="secondary" data-testid="button-linkedin">
-                <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">Connect on LinkedIn</a>
+              <Button asChild variant="secondary" data-testid="button-youtube">
+                <a href="https://www.youtube.com/@BuildingAuthorsForNature-ow3mo" target="_blank" rel="noreferrer">Follow on YouTube</a>
               </Button>
             </div>
           </div>
